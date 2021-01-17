@@ -1,0 +1,22 @@
+.login_container {
+  width: 450px;
+  border-radius: 10px;
+
+  .input_row {
+    width: 400px;
+    margin-bottom: 10px;
+
+    .input {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .required {
+      abbr {
+        text-decoration: none;
+        color: #ff0000
+      }
+      
+    }
+  }
+}
