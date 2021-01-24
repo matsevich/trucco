@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'testing test  for CI' do
+    expect(2 + 2).to be(4)
+  end
 end
