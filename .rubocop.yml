@@ -11,3 +11,7 @@ Style/FrozenStringLiteralComment:
 
 Rails/FilePath:
   Enabled: false
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/*'

@@ -49,6 +49,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'pry', '~> 0.13.1'
+  gem 'rails-i18n'
   gem 'rspec-rails', '~> 4.0.1'
   gem 'rubocop-rspec', '~> 1.43', '>= 1.43.2', require: false
 end
