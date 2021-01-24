@@ -30,6 +30,8 @@ module Trucco
     # the framework and any gems in your application.
     config.generators do |g|
       g.template_engine :slim
+      g.test_framework :rspec, fixtures: true, views: false
+      g.fixture_replacement :factory_bot_rails, dir: 'spec/factories'
     end
     # Don't generate system test files.
     config.generators.system_tests = nil

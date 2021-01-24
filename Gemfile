@@ -20,6 +20,7 @@ gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'factory_bot_rails'
 gem 'font-awesome-rails'
 gem 'jbuilder', '~> 2.7'
 gem 'kaminari'
@@ -46,7 +47,6 @@ group :development, :test do
   gem 'annotate'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
-  gem 'factory_bot_rails'
   gem 'faker'
   gem 'pry', '~> 0.13.1'
   gem 'rails-i18n'
