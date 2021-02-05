@@ -32,9 +32,11 @@ ActiveRecord::Schema.define(version: 2021_01_24_131852) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.integer "price_cents"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_products_on_name"
+    t.index ["price_cents"], name: "index_products_on_price_cents"
   end
 
 end
