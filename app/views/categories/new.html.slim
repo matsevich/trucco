@@ -1,0 +1,8 @@
+= provide(:button, 'Add category')
+= provide(:cancel_btn_text, 'Cancel')
+= provide(:path, categories_path)
+.container 
+  .pt-4
+    .form-component
+      h1.text-center Add new category
+      = render 'form', object: @category

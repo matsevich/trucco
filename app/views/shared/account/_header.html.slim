@@ -4,10 +4,9 @@ nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
     span.navbar-toggler-icon
   #navbarCollapse.collapse.navbar-collapse
     ul.navbar-nav.mr-auto
-      li.nav-item.active
-        a.nav-link href="#" 
-          | Home
-          span.sr-only (current)
+      li.nav-item
+        = link_to categories_path, class: 'nav-link'
+          | Categories
       li.nav-item
         a.nav-link href="#"  Link
       li.nav-item

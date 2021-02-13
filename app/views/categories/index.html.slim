@@ -1,0 +1,20 @@
+
+.d-flex.justify-content-center
+  h2.mr-4 All Categories
+  = link_to new_category_path
+    button.btn.btn-outline-secondary
+      = fa_icon 'plus'
+table.table
+  thead.thead
+    tr
+      th
+        span Title
+      th.text-center
+        span Description
+      th.text-center
+        span Edit
+      th.text-center
+        span Delete
+  tbody.tbody
+    - @categories.each do |category|
+      = render category
