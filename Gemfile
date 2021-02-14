@@ -70,6 +70,7 @@ group :test do
   gem 'shoulda-matchers', '~> 4.4', '>= 4.4.1'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'simplecov', '= 0.17', require: false
+  gem 'simplecov-shields-badge', require: false
 end
 
 group :production do
