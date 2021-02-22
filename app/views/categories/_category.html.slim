@@ -11,6 +11,6 @@ tr
       h2.m-0
         = fa_icon 'edit', class: 'pt-1'
   td.text-center.align-middle
-    = link_to category_path(category), method: :delete, data: { confirm: 'Are you shure?' }
+    = link_to category_path(category), method: :delete, data: { confirm: t('.confirmation') }
       h2
         = fa_icon 'trash'

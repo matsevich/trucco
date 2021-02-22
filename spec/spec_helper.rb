@@ -5,8 +5,6 @@ SimpleCov.start do
 end
 
 require 'shields_badge'
-SimpleCov.formatter = SimpleCov::Formatter::ShieldsBadge
-
 require 'pry'
 require 'money-rails/test_helpers'
 

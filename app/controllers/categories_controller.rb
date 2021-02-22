@@ -12,10 +12,10 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      flash[:success] = "You have successfully created new '#{@category.title}' category"
+      flash[:success] = t('.create_title', create_title: @category.title)
       redirect_to categories_path
     else
-      flash.now[:warning] = 'Invalid parameters'
+      flash.now[:warning] = t('.invalid_params')
       render :new
     end
   end
@@ -24,10 +24,10 @@ class CategoriesController < ApplicationController
 
   def update
     if @category.update(category_params)
-      flash[:success] = 'You have successfully updated your category'
+      flash[:success] = t('.successfully_update')
       redirect_to categories_path
     else
-      flash.now[:warning] = 'Invalid parameters for editing'
+      flash.now[:warning] = t('.invalid_edit_params')
       render :edit
     end
   end
@@ -35,7 +35,7 @@ class CategoriesController < ApplicationController
   def destroy
     @category.destroy
     redirect_to categories_path
-    flash[:danger] = "You have deleted '#{@category.title}' category"
+    flash[:danger] = t('.destroy_title', destroy_title: @category.title)
   end
 
   private

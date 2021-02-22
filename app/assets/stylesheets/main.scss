@@ -38,3 +38,36 @@ span.error {
   left: 0;
   top: 6px;
 }
+
+#dropdownMenuButton {
+  color: #d4d9f0;
+  opacity: .9;
+
+  &:hover {
+    color: #ffffff;
+    opacity: 1;
+  }
+}
+
+.dropdown-menu.show {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 90px;
+  align-items: center;
+  left: 20px;
+  background-color: #343a40;
+  border-radius: 12px;
+
+  .dropdown-btn {
+    text-decoration: none;
+    color: #d4d9f0;
+    opacity: .9;
+
+    &:hover {
+      color: #ffffff;
+      opacity: 1;
+      text-decoration: underline;
+    }
+  }
+}
