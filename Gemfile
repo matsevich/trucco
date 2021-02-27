@@ -27,6 +27,7 @@ gem 'kaminari'
 gem 'money-rails', '~>1.12'
 gem 'premailer-rails'
 gem 'pundit'
+gem 'rails-i18n', '~> 6.0.0'
 gem 'rubocop-rails', '~> 2.8.1'
 gem 'sidekiq'
 gem 'sidekiq-cron', '~> 1.1'
@@ -50,7 +51,6 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'faker'
   gem 'pry', '~> 0.13.1'
-  gem 'rails-i18n'
   gem 'rspec-rails', '~> 4.0.1'
   gem 'rubocop-rspec', '~> 1.43', '>= 1.43.2', require: false
 end

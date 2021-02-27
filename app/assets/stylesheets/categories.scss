@@ -1,0 +1,29 @@
+// Place all the styles related to the Categories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.form-component {
+  max-width: 800px;
+  margin: 0 auto;
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    margin: 0 auto;
+  }
+  
+  .description-area {
+    min-height: 300px;
+  }
+}
+
+.text-center.align-middle {
+  a {
+    color: rgb(73, 71, 71);
+
+    &:hover {
+      color: rgb(2, 82, 114);
+    }
+  }
+}

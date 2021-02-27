@@ -1,0 +1,16 @@
+tr
+  td
+    span
+      = category.title
+  td
+    span
+      = category.description
+
+  td.text-center.align-middle
+    = link_to edit_category_path(category)
+      h2.m-0
+        = fa_icon 'edit', class: 'pt-1'
+  td.text-center.align-middle
+    = link_to category_path(category), method: :delete, data: { confirm: t('.confirmation') }
+      h2
+        = fa_icon 'trash'
