@@ -1,0 +1,20 @@
+
+  = turbo_frame_tag dom_id(product) do
+    .row.item-line.justify-content-between
+      .col-5.text-center
+        = link_to product_path(product)
+          = product.name
+      .col-2.text-center
+        = product&.category&.title
+      .col-1.text-center
+        = product.price.format
+      .col-2.text-center
+        = product.created_at.strftime("%d-%m-%Y")
+      .col-1.text-center.align-middle
+        = link_to edit_product_path(product)
+          .m-0
+            = fa_icon 'edit'
+      .col-1.text-center.align-middle
+        = link_to product_path(product), method: :delete, data: { confirm: t('.confirmation') }
+          = fa_icon 'trash'
+

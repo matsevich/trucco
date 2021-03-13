@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include Pagy::Backend
+
   layout :choose_layout
   # before_action :authenticate_admin!
   before_action :configure_permitted_parameters, if: :devise_controller?

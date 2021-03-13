@@ -32,6 +32,13 @@
 uk:
   hello: "Привіт світ"
 
+
+  pagy:
+    nav:
+      prev: '‹ Попер'
+      next: 'Наст ›'
+
+
   layouts:
 
     application:
@@ -53,6 +60,7 @@ uk:
         root_link_title: 'Trucco'
         log_out: 'Вийти'
         categories: 'Категорії'
+        products: 'Товари'
         hello: "Привіт, %{hello}"
         select_lang: 'Вибрати мову'
         btn_eng: 'EN'
@@ -98,5 +106,37 @@ uk:
       cancel: 'Відмінити'
       new_category: 'Редагувати категорію'
 
+  products:
 
+    create_name: "Ви успішно створили новий продукт '%{create_name}'"
+    invalid_params: 'Недійсні параметри'
+    successfully_update: 'Ви успішно оновили ваш продукт'
+    invalid_edit_params: 'Недійсні параметри для оновлення'
+    destroy_name: "Ви видалили '%{destroy_name}'"
 
+    index:
+      all_products: 'Усі продукти'
+      header_name: 'Назва'
+      header_description: 'Опис'
+      header_category: 'Категорія'
+      header_price: 'Ціна'
+      header_created_at: 'Був доданий'
+      header_edit: 'Редагувати'
+      header_delete: 'Видалити'
+    
+    product:
+      confirmation: 'Ви впевнені?'
+
+    form:
+      name_placeholder: "Ім'я:"
+      description_placeholder: 'Опис:'
+      price_placeholder: 'Ціна:'
+      name_label: "Ім'я"
+      category_label: 'Категорія'
+      description_label: 'Опис'
+      price_label: 'Ціна'
+
+    show:
+      price: 'Ціна: %{price}'
+      category: 'Категорія: %{category}'
+      description: 'Опис:'

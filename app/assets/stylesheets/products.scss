@@ -1,3 +1,128 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+#products turbo-frame:nth-child(odd) {
+  .item-line {
+    background: rgba(57, 224, 188, 0.05);
+  }
+}
+
+#products .row div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  overflow: hidden;
+}
+
+.item-line {
+  border:  1px solid #625f5f;
+  border-top: hidden;
+}
+
+/* .products_list turbo-frame:first-child {
+  .item-line {
+    border-top: 1px solid #625f5f;
+  }
+} */
+
+.row .text-center .form-group {
+  margin: 5px 0;
+  flex-direction: column;
+
+  label {
+    margin: 0;
+    font-weight: bold;
+
+    abbr {
+      display: none;
+    }
+  }
+}
+
+.text-center {
+  .fa-check {
+    color: #28a745;
+
+    &:hover {
+      text-shadow: 1px 1px 6px #c6d829;
+    }
+  }
+
+  .fa-arrow-left {
+    color: #af2108;
+
+    &:hover {
+      color: #f5130b;
+      transition: ease .5s;
+    }
+  }
+}
+
+#new_product .item-line {
+  border: 1px solid;
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+
+.date {
+  display: none !important;
+}
+
+.form-control.is-valid {
+  background-size: 11px;
+  background-position: right -2px top -3px;
+}
+
+
+
+#product_price {
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.form-buttons {
+  text-align: center !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 45px;
+
+  button {
+    margin-right: 25px;
+  }
+}
+
+#product_category_id, option {
+  cursor: pointer;
+}
+
+.show-row {
+  border-bottom:  1px solid #625f5f;
+  align-items: flex-start;
+
+  div {
+    justify-content: center !important;
+    align-items: flex-start !important;
+  }
+
+  .col-7.middle-col {
+    flex-direction: column;    
+  }
+
+  .pic img {
+    height: 245px;
+    background-color: #8cdc96b0;
+  }
+
+  .fa-arrow-left {
+    color: #af2108;
+
+    &:hover {
+      color: #f5130b;
+      transition: ease .5s;
+    }
+  }
+}

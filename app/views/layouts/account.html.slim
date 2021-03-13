@@ -8,9 +8,11 @@ html
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = turbo_include_tags
   body
     .m-top
       = render 'shared/account/header'
-      = render 'shared/flash_msg'
-      .container.mt-8 
+      = turbo_frame_tag 'flash' do
+        = render 'shared/flash_msg'
+      .container-fluid.mt-8 
         = yield

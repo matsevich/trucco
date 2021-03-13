@@ -27,7 +27,7 @@
 #   'true': 'foo'
 #
 # To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
+# availabel at https://guides.rubyonrails.org/i18n.html.
 
 en:
   hello: "Hello world"
@@ -53,6 +53,7 @@ en:
         root_link_title: 'Trucco'
         log_out: 'Log Out'
         categories: 'Categories'
+        products: 'Products'
         hello: "Hello, %{hello}"
         select_lang: 'Select Lang'
         btn_eng: 'EN'
@@ -98,5 +99,38 @@ en:
       cancel: 'Cancel'
       new_category: 'Edit category'
 
+  products:
 
+    create_name: "You have successfully created new product '%{create_name}'"
+    invalid_params: 'Invalid parameters'
+    successfully_update: 'You have successfully updated your product'
+    invalid_edit_params: 'Invalid parameters for editing'
+    destroy_name: "You have deleted '%{destroy_name}'"
+
+    index:
+      all_products: 'All Products'
+      header_name: 'Name'
+      header_description: 'Description'
+      header_category: 'Category'
+      header_price: 'Price'
+      header_created_at: 'Was added at'
+      header_edit: 'Edit'
+      header_delete: 'Delete'
+
+    product:
+      confirmation: 'Are you shure?'
+
+    form:
+      name_placeholder: 'Name:'
+      description_placeholder: 'Description:'
+      price_placeholder: 'Price:'
+      name_label: 'Name'
+      category_label: 'Category'
+      description_label: 'Description'
+      price_label: 'Price'
+
+    show:
+      price: 'Price: %{price}'
+      category: 'Category: %{category}'
+      description: 'Description:'
 

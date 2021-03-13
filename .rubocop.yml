@@ -19,15 +19,28 @@ Metrics/MethodLength:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+    - 'config/initializers/*'
 
 Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true
+
+Layout/HashAlignment:
+  Exclude:
+    - 'config/initializers/*'
+
+Layout/LineLength:
+  Exclude:
+    - 'config/initializers/*'
 
 Layout/SpaceAroundMethodCallOperator:
   Enabled: true
 
 Lint/BinaryOperatorWithIdenticalOperands:
   Enabled: true
+
+Lint/UnusedBlockArgument:
+  Exclude:
+    - 'config/initializers/*'
 
 Lint/DeprecatedOpenSSLConstant:
   Enabled: true
@@ -79,6 +92,10 @@ Style/AsciiComments:
 
 Style/Encoding:
   Enabled: false
+
+Style/Lambda:
+  Exclude:
+    - 'config/initializers/*'
 
 Style/BisectedAttrAccessor:
   Enabled: true

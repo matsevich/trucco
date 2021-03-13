@@ -21,6 +21,8 @@
 .text-center.align-middle {
   a {
     color: rgb(73, 71, 71);
+    text-decoration: none;
+    font-size: 26px;
 
     &:hover {
       color: rgb(2, 82, 114);

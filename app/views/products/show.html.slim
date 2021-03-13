@@ -1,2 +1,24 @@
-h1 Products#show
-p Find me in app/views/products/show.html.slim
+= turbo_frame_tag dom_id(@product) do
+  .text-center
+    h3
+      = @product.name
+  .row.show-row
+    .col-3
+      .pic.mb-3
+        img alt=('Someday here will be some pictures') src='#'
+    .col-7.middle-col
+      .price
+        p
+          = t('.price', price: @product.price.format)
+      .category
+        p
+          = t('.category', category: @product&.category&.title)
+      .description
+        p
+          = t('.description')
+        p.ml-2
+          = @product.description
+    .col-2.m-auto
+      = link_to products_path
+          h2
+            i.fa.fa-arrow-left

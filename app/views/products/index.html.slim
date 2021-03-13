@@ -1,2 +1,30 @@
-h1 Products#index
-p Find me in app/views/products/index.html.slim
+.d-flex.justify-content-center
+  h2.mr-4
+    = t('.all_products')
+
+.container-fluid
+  = turbo_frame_tag 'new_product' do
+    .mb-3
+      = link_to new_product_path
+        button.btn.btn-outline-secondary
+          = fa_icon 'plus'
+  .row.justify-content-between.font-weight-bold.border-bottom.border-dark
+    .col-5.text-center
+      = t('.header_name')
+    .col-2.text-center
+      = t('.header_category')
+    .col-1.text-center
+      = t('.header_price')
+    .col-2.text-center
+      = t('.header_created_at')
+    .col-1.text-center
+      = t('.header_edit')
+    .col-1.text-center
+      = t('.header_delete')
+  = turbo_stream_from 'products'
+  = turbo_frame_tag 'products' do
+    .products_list
+      = render @products
+    
+    .d-flex.justify-content-center.mt-4
+      == pagy_bootstrap_nav(@pagy)
