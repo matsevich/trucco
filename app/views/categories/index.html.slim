@@ -5,23 +5,21 @@
   = link_to new_category_path
     button.btn.btn-outline-secondary
       = fa_icon 'plus'
-= turbo_stream_from 'categories'
-= turbo_frame_tag 'categories' do
-  table.table
-    thead.thead
-      tr
-        th
-          span
-            = t('.header_title')
-        th.text-center
-          span
-          = t('.header_description')
-        th.text-center
-          span
-          = t('.header_edit')
-        th.text-center
-          span
-          = t('.header_delete')
-    tbody.tbody
-      - @categories.each do |category|
-        = render category
+table.table
+  thead.thead
+    tr
+      th
+        span
+          = t('.header_title')
+      th.text-center
+        span
+        = t('.header_description')
+      th.text-center
+        span
+        = t('.header_edit')
+      th.text-center
+        span
+        = t('.header_delete')
+  tbody.tbody
+    - @categories.each do |category|
+      = render category

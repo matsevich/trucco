@@ -17,14 +17,14 @@ gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'factory_bot_rails'
 gem 'font-awesome-rails'
+gem 'hotwire-rails'
 gem 'jbuilder', '~> 2.7'
 gem 'kaminari'
 gem 'money-rails', '~>1.12'
+gem 'pagy'
 gem 'premailer-rails'
 gem 'pundit'
 gem 'rails-i18n', '~> 6.0.0'
@@ -33,8 +33,6 @@ gem 'sidekiq'
 gem 'sidekiq-cron', '~> 1.1'
 gem 'simple_form', '~> 5.0', '>= 5.0.3'
 gem 'slim-rails', '~> 3.2.0'
-gem 'pagy'
-gem 'hotwire-rails'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

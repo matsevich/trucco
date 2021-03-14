@@ -6,5 +6,4 @@
     .form-component
       h1.text-center
         = t('.new_category')
-      = turbo_frame_tag 'categories', target: '_top' do
-        = render 'form', object: @category
+      = render 'form', object: @category

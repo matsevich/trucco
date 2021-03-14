@@ -12,7 +12,6 @@ html
   body
     .m-top
       = render 'shared/account/header'
-      = turbo_frame_tag 'flash' do
-        = render 'shared/flash_msg'
+      = render 'shared/flash_msg'
       .container-fluid.mt-8 
         = yield

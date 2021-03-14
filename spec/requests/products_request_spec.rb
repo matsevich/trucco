@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Products', type: :request do
-  let(:product) { create(:product) }
+  let(:product) { create(:product, category_id: category.id) }
   let(:category) { create(:category) }
   let(:valid_params) { attributes_for :product }
 
@@ -76,9 +76,9 @@ RSpec.describe 'Products', type: :request do
   end
 
   describe 'DELETE /destroy' do
-    it 'returns http redirect' do
+    it 'returns http no-content' do
       delete "/products/#{product.id}"
-      expect(response).to have_http_status(:redirect)
+      expect(response).to have_http_status(:no_content)
     end
   end
 end
