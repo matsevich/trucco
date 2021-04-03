@@ -2,7 +2,14 @@ FactoryBot.define do
   factory :product do
     name { Faker::GreekPhilosophers.name }
     description { Faker::GreekPhilosophers.quote }
-    price_cents { Faker::Number.number(digits: 5) }
-    category
+    category { Category.all.sample }
+
+    transient do
+      prices_count { 2 }
+    end
+
+    after(:create) do |product, evaluator|
+      create_list(:price, evaluator.prices_count, product: product)
+    end
   end
 end

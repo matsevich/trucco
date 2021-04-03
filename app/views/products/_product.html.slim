@@ -1,0 +1,20 @@
+.row.item-line.justify-content-between
+  - product.prices.each do |price|
+    .col-3.text-center
+      = link_to product_path(product)
+        = product.name
+    .col-2.text-center
+      = product&.category&.title
+    .col-2.text-center
+      = price.buy_price.format
+    .col-2.text-center
+      = price.sell_price.format 
+    .col-1.text-center
+      = price.quantity
+    .col-1.text-center.align-middle
+      = link_to edit_product_path(product)
+        .m-0
+          = fa_icon 'edit'
+    .col-1.text-center.align-middle
+      = link_to product_path(product), method: :delete, data: { confirm: t('.confirmation') }
+        = fa_icon 'trash'
