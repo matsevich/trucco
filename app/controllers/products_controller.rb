@@ -1,9 +1,9 @@
 class ProductsController < ApplicationController
-  before_action :product, only: %i[edit update destroy]
+  include ProductsHelper
+  before_action :product, only: %i[edit update show destroy]
 
   def index
     @products = Product.all
-    #Product.joins(:prices).where.not('prices.quantity = ?', 0).distinct
   end
 
   def show; end
@@ -16,41 +16,30 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     product_price = @product.prices.try(:first)
-    new_buy_price = product_price.buy_price
-    new_sell_price = product_price.sell_price
     if (existing_product = Product.find_by(name: @product.name))
-      new_buy_price_cents = product_price.buy_price_cents
-      new_sell_price_cents = product_price.sell_price_cents
       if (existing_product_price = existing_product.prices.where(
-        'buy_price_cents = ? AND sell_price_cents = ?', new_buy_price_cents, new_sell_price_cents
+        'buy_price_cents = ? AND sell_price_cents = ?', product_price.buy_price_cents, product_price.sell_price_cents
       ).try(:first))
         if existing_product_price.update(quantity: existing_product_price.quantity + product_price.quantity)
-          flash[:success] = "You add #{product_price.quantity} item(s) of #{@product.name}, with existing #{new_buy_price.format} - 'buy_price' and #{new_sell_price.format} - 'sell_price'" # t('.create_title', create_title: @product.name)
-          redirect_to products_path
+          added_existing_prices_flash(product_price.quantity, @product.name, product_price.buy_price.format, product_price.sell_price.format)
         else
-          flash.now[:warning] = t('.invalid_params')
-          render :new
+          invalid_new_params_render
         end
       elsif existing_product.prices << @product.prices.try(:first)
-        flash[:success] = "You add #{product_price.quantity} item(s) of #{@product.name}, with new prices" # t('.create_title', create_title: @product.name)
-        redirect_to products_path
+        added_new_prices_flash(product_price.quantity, @product.name)
       else
-        flash.now[:warning] = t('.invalid_params')
-        render :new
+        invalid_new_params_render
       end
     elsif @product.save
-      flash[:success] = "You have add #{product_price.quantity} item(s) of new #{@product.name}" # t('.create_title', create_title: @product.name)
-      redirect_to products_path
+      added_new_product_flash(product_price.quantity, @product.name)
     else
-      flash.now[:warning] = t('.invalid_params')
-      render :new
+      invalid_new_params_render
     end
   end
 
   def edit; end
 
   def update
-    @product = @product.prices(params[:id])
     if @product.update(product_params)
       flash[:success] = t('.successfully_update')
       redirect_to products_path
@@ -58,6 +47,12 @@ class ProductsController < ApplicationController
       flash.now[:warning] = t('.invalid_edit_params')
       render :edit
     end
+  end
+
+  def destroy
+    @product.destroy
+    redirect_to products_path
+    flash[:danger] = t('.destroy_product', destroy_product: @product.name)
   end
 
   private

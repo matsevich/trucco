@@ -4,7 +4,7 @@
 
 
 .product_form .form-group.price .input {
-  width: 400px;
+  min-width: 325px;
 }
 
 .product_form {
@@ -12,4 +12,24 @@
   border: 1px solid #1fc7c0;
   padding: 20px;
   border-radius: 20px;
+}
+
+.back {
+  position: absolute;
+  height: 600px;
+  background-color: #f8f8f859;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  right: 0;
+  padding: 10px;
+  border-radius: 14px 0 0 14px;
+  color: #dee4dead;
+  transform: translateY(-50%);
+
+  &:hover {
+    background-color: #d0e6f986;
+    color: #023157c0;
+  }
 }

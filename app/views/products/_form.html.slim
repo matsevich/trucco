@@ -12,7 +12,7 @@
       = f.input :description, label: t('.description_label'),
                         placeholder: t('.description_placeholder'),
                         input_html: { class: 'form-control description-area' }
-    = render 'products/prices', f: f
+    = render 'products/prices', f: f unless request.env['PATH_INFO'] =~ /edit/
 
     .form-group.form-buttons.text-center
       = f.submit yield(:button), class: 'btn btn-primary mr-4'

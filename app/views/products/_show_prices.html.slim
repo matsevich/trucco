@@ -1,0 +1,20 @@
+.prices-block.pl-3
+  .row.border-bottom.border-dark.font-weight-bold
+    .col-4.text-center
+      = t('.product_name_header')
+    .col-3.text-center
+      = t('.buy_price')
+    .col-3.text-center
+      = t('.sell_price')
+    .col-2.text-center
+      = t('.quantity')
+  - @product.prices.each do |price|
+    .row.border-bottom.pt-3.pb-3
+      .col-4.text-center
+        = @product.name
+      .col-3.text-center
+        = price.buy_price.format
+      .col-3.text-center
+        = price.sell_price.format
+      .col-2.text-center
+        = "#{price.quantity} #{t('.pices')}"

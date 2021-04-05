@@ -1,0 +1,21 @@
+
+= simple_form_for [@product, @price] do |f|
+  .product_form
+    .form-group.d-flex.justify-content-between.price
+      = f.input :buy_price,   label: t('.buy_price_label'),
+                                  required: true,
+                                  placeholder: t('.buy_price_placeholder'),
+                                  input_html: { class: 'form-control' }
+
+      = f.input :sell_price,  label: t('.sell_price_label'),
+                                  required: true,
+                                  placeholder: t('.sell_price_placeholder'),
+                                  input_html: { class: 'form-control' }
+    .form-group
+      = f.input :quantity,    label: t('.quantity'),
+                                  required: true,
+                                  placeholder: t('.quantity_placeholder'),
+                                  input_html: { class: 'form-control' }
+    .form-group.form-buttons.text-center
+      = f.submit t('.edit'), class: 'btn btn-primary mr-4'
+      = link_to  t('.cancel'), products_path, class: 'btn btn-outline-danger'

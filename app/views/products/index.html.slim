@@ -1,5 +1,5 @@
 .d-flex.justify-content-center
-  h2.mr-4
+  h2
     = t('.all_products')
 
 .container-fluid
@@ -15,11 +15,11 @@
       = t('.header_buy_price')
     .col-2.text-center
       = t('.header_sell_price')
-    .col-1.text-center
+    .col-1.text-center.p-0
       = t('.header_quantity')
-    .col-1.text-center
+    .col-1.text-center.p-0
       = t('.header_edit')
-    .col-1.text-center
+    .col-1.text-center.p-0
       = t('.header_delete')
   .products_list
     = render @products
