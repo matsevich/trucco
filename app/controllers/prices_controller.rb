@@ -3,7 +3,7 @@ class PricesController < ApplicationController
 
   def edit; end
 
-  def update
+  def update # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
     if @price.update(price_params)
       if (identic = @product.prices.where(
         buy_price_cents: @price.buy_price_cents, sell_price_cents: @price.sell_price_cents

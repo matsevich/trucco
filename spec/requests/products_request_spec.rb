@@ -4,6 +4,7 @@ RSpec.describe 'Products', type: :request do
   let(:product) { create(:product, category_id: category.id) }
   let(:category) { create(:category) }
   let(:valid_params) { attributes_for :product }
+  let(:price_params) { attributes_for :price }
 
   describe 'GET /index' do
     it 'returns http success' do
@@ -27,23 +28,70 @@ RSpec.describe 'Products', type: :request do
   end
 
   describe 'POST /create' do
-    context 'with valid params' do
-      subject { post '/products', params: { product: valid_params.merge!(category_id: category.id) } }
+    context 'when the same-name product already exist' do
+      subject do
+        post '/products', params: {
+          product: {
+            name: 'Item', category_id: category.id,
+            prices_attributes: [{ buy_price: 100, sell_price: 120, quantity: 2 }]
+          }
+        }
+      end
 
-      xit 'returns http redirect' do
+      let!(:product_1) { create(:product, name: 'Item', category_id: category.id) }
+
+      context 'when creating a product which has the same prices as the existing product' do
+        let(:price) do
+          create(:price, buy_price: 100, sell_price: 120, quantity: 2, product_id: product_1.id)
+        end
+
+        it 'adds updated price quantity to existing price' do
+          expect { subject }.to change { price.reload.quantity }.by(2)
+        end
+
+        it 'not created new product item' do
+          expect { subject }.to change(Product, :count).by(0)
+        end
+
+        it { is_expected.not_to render_template(:new) }
+      end
+
+      context 'with invalid params' do
+        it 'renders :new template with warning message' do
+          post '/products', params: { product: { name: 'Item', category_id: '',
+                                                 prices_attributes: [price_params.merge!(buy_price: 'x')] } }
+
+          expect(response).to render_template(:new)
+          expect(flash[:warning]).to be_present
+        end
+      end
+    end
+
+    context 'with valid params' do
+      subject do
+        post '/products', params: {
+          product: {
+            name: 'Item', category_id: category.id,
+            prices_attributes: [price_params]
+          }
+        }
+      end
+
+      it 'returns http redirect' do
         subject
         expect(response).to have_http_status(:redirect)
       end
 
-      xit { expect { subject }.to change(Product, :count).by(1) }
+      it { expect { subject }.to change(Product, :count).by(1) }
     end
 
     context 'with invalid params' do
-      it 'returns current turbo-frame' do
-        post '/products', params: { product: valid_params.merge!(
-          category_id: category.id, name: '', price: '100'
-        ) }
-        expect(response).to have_http_status(:success)
+      it 'renders template with warning message' do
+        post '/products', params: { product: {
+          name: '', category_id: category.id, prices_attributes: [price_params]
+        } }
+        expect(response).to render_template(:new)
+        expect(flash[:warning]).to be_present
       end
     end
   end
@@ -51,6 +99,7 @@ RSpec.describe 'Products', type: :request do
   describe 'GET /edit' do
     it 'returns http success' do
       get "/products/#{product.id}/edit"
+      expect(response).to render_template(:edit)
       expect(response).to have_http_status(:success)
     end
   end
@@ -59,18 +108,19 @@ RSpec.describe 'Products', type: :request do
     context 'with valid params' do
       it 'returns http redirect' do
         put "/products/#{product.id}", params: { product: valid_params.merge!(
-          name: 'Item', price: 100
+          name: 'Item'
         ) }
         expect(response).to have_http_status(:redirect)
       end
     end
 
     context 'with invalid params' do
-      it 'returns current turbo-frame' do
+      it 'renders template with warning message' do
         put "/products/#{product.id}", params: { product: valid_params.merge!(
-          name: '', price: '100'
+          name: ''
         ) }
-        expect(response).to have_http_status(:success)
+        expect(response).to render_template(:edit)
+        expect(flash[:warning]).to be_present
       end
     end
   end

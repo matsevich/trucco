@@ -16,7 +16,6 @@ RSpec.describe 'Prices', type: :request do
 
   describe 'PUT /update' do
     context 'with valid params' do
-
       it 'returns http redirect' do
         put "/products/#{price.product_id}/prices/#{price.id}", params: { price: valid_params.merge!(
           buy_price: 90, sell_price: 190

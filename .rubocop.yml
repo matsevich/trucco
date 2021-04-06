@@ -182,6 +182,10 @@ Rails/WhereExists:
 Rails/WhereNot:
   Enabled: true
 
+Rails/BulkChangeTable:
+  Exclude:
+    - 'db/migrate/*'
+
 RSpec/StubbedMock:
   Enabled: true
 
@@ -190,3 +194,9 @@ RSpec/NamedSubject:
 
 RSpec/MultipleExpectations:
   Max: 2
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 8
+
+RSpec/NestedGroups:
+  Max: 6
