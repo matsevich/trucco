@@ -41,7 +41,7 @@ RSpec.describe 'Products', type: :request do
       let!(:product_1) { create(:product, name: 'Item', category_id: category.id) }
 
       context 'when creating a product which has the same prices as the existing product' do
-        let(:price) do
+        let!(:price) do
           create(:price, buy_price: 100, sell_price: 120, quantity: 2, product_id: product_1.id)
         end
 
@@ -54,6 +54,25 @@ RSpec.describe 'Products', type: :request do
         end
 
         it { is_expected.not_to render_template(:new) }
+
+        it 'calls ProductPriceHandler service' do
+          expect_any_instance_of(ProductPriceHandler).to receive(:call)
+          subject
+        end
+      end
+
+      context 'when creating a product with a different price that existing product' do
+        let(:prices) { product_1.prices }
+
+        it 'adds new price to existing product' do
+          expect { subject }.to change(product_1.prices, :count).by(1)
+        end
+
+        it 'not created new product item' do
+          expect { subject }.to change(Product, :count).by(0)
+        end
+
+        it { is_expected.to redirect_to(products_path) }
       end
 
       context 'with invalid params' do

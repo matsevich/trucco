@@ -13,29 +13,16 @@ class ProductsController < ApplicationController
     @product.prices.build
   end
 
-  def create # rubocop:disable Metrics/AbcSize, Metrics/MethodLength, Metrics/PerceivedComplexity
+  def create
     @product = Product.new(product_params)
+    existing_product = Product.find_by(name: @product.name)
     product_price = @product.prices.try(:first)
-    if (existing_product = Product.find_by(name: @product.name))
-      if (existing_product_price = existing_product.prices.where(
-        'buy_price_cents = ? AND sell_price_cents = ?', product_price.buy_price_cents, product_price.sell_price_cents
-      ).try(:first))
-        if existing_product_price.update(quantity: existing_product_price.quantity + product_price.quantity)
-          added_existing_prices_flash(
-            product_price.quantity, @product.name, product_price.buy_price.format, product_price.sell_price.format
-          )
-        else
-          invalid_new_params_render
-        end
-      elsif existing_product.prices << @product.prices.try(:first)
-        added_new_prices_flash(product_price.quantity, @product.name)
-      else
-        invalid_new_params_render
-      end
+    if existing_product
+      behavior_existing_product_price(@product, existing_product, product_price)
     elsif @product.save
       added_new_product_flash(product_price.quantity, @product.name)
     else
-      invalid_new_params_render
+      invalid_new_params
     end
   end
 

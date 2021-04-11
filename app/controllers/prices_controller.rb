@@ -3,14 +3,9 @@ class PricesController < ApplicationController
 
   def edit; end
 
-  def update # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+  def update
     if @price.update(price_params)
-      if (identic = @product.prices.where(
-        buy_price_cents: @price.buy_price_cents, sell_price_cents: @price.sell_price_cents
-      ).where.not(id: @price.id).take)
-        identic.update(quantity: identic.quantity + @price.quantity)
-        @product.prices.delete(@price.id)
-      end
+      PriceUpdater.new(@product, @price).call
       flash[:success] = t('.successfully_update', update_product: @product.name)
       redirect_to products_path
     else

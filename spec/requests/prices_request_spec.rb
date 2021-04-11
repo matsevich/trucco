@@ -42,17 +42,27 @@ RSpec.describe 'Prices', type: :request do
         end
 
         it { is_expected.not_to render_template(:edit) }
+
+        it 'calls PriceUpdater service' do
+          expect_any_instance_of(PriceUpdater).to receive(:call)
+          subject
+        end
       end
     end
 
     context 'with invalid params' do
-      it 'returns current turbo-frame' do
+      before do
         put "/products/#{price.product_id}/prices/#{price.id}", params: { price: valid_params.merge!(
           buy_price: nil, sell_price: '200'
         ) }
-        expect(response).not_to redirect_to(product_path)
+      end
+
+      it 'returns edit template' do
+        expect(response).not_to redirect_to(products_path)
         expect(response).to render_template(:edit)
       end
+
+      it { expect(flash[:warning]).to be_present }
     end
   end
 

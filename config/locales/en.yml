@@ -98,7 +98,7 @@ en:
       edit_button: 'Edit category'
       cancel: 'Cancel'
       new_category: 'Edit category'
-
+  
   products:
 
     successfully_update: Product was successfully updated
@@ -121,11 +121,6 @@ en:
       cancel_btn_text: Cancel
     
     create:
-      existing_prices_success: You add %{quantity} %{item} of %{name}, with existing %{buy_price} - 'Purchase price' and %{sell_price} - 'Selling price'
-      invalid_new_params: Invalid parameters
-      new_prices_success: You add %{quantity} %{item} of %{name}, with new prices
-      new_product_success: You have add %{quantity} %{item} of new product - %{name}
-      item: item
 
     edit:
       edit_product: Edit product
@@ -164,6 +159,13 @@ en:
       sell_price: Selling price
       quantity: Quantity
       pices: pcs.
+
+    
+  existing_prices_success: You add %{quantity} %{item} of %{name}, with existing %{buy_price} - 'Purchase price' and %{sell_price} - 'Selling price'
+  item: item
+  invalid_new_params: Invalid parameters
+  new_prices_success: You add %{quantity} %{item} of %{name}, with new prices
+  new_product_success: You have add %{quantity} %{item} of new product - %{name}
 
   prices:
 

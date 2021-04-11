@@ -192,6 +192,9 @@ RSpec/StubbedMock:
 RSpec/NamedSubject:
   Enabled: false
 
+RSpec/AnyInstance:
+  Enabled: false
+
 RSpec/MultipleExpectations:
   Max: 2
 
