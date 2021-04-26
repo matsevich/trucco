@@ -161,7 +161,7 @@ en:
       pices: pcs.
 
     
-  existing_prices_success: You add %{quantity} %{item} of %{name}, with existing %{buy_price} - 'Purchase price' and %{sell_price} - 'Selling price'
+  existing_prices_success: You add %{quantity} %{item} of %{name}, with existing prices
   item: item
   invalid_new_params: Invalid parameters
   new_prices_success: You add %{quantity} %{item} of %{name}, with new prices

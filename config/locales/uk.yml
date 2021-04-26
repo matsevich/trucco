@@ -159,7 +159,7 @@ uk:
       quantity: Кількість
       pices: шт.
 
-  existing_prices_success: Ви додали %{quantity} %{item} - %{name}, з існуючою %{buy_price} - 'Закупочною ціною' і %{sell_price} - 'Ціною продажу'
+  existing_prices_success: Ви додали %{quantity} %{item} - %{name}, з вжe існуючою  ціною
   item: шт.
   invalid_new_params: Не вірні параметри
   new_prices_success: Ви додали %{quantity} %{item} - %{name}, з новими цінами

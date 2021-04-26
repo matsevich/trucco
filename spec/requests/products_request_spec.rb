@@ -55,6 +55,11 @@ RSpec.describe 'Products', type: :request do
 
         it { is_expected.not_to render_template(:new) }
 
+        it 'calls ExistingProductPriceUpdater#update_quantity' do
+          expect_any_instance_of(ExistingProductPriceUpdater).to receive(:update_quantity)
+          subject
+        end
+
         it 'calls ProductPriceHandler service' do
           expect_any_instance_of(ProductPriceHandler).to receive(:call)
           subject
@@ -66,6 +71,11 @@ RSpec.describe 'Products', type: :request do
 
         it 'adds new price to existing product' do
           expect { subject }.to change(product_1.prices, :count).by(1)
+        end
+
+        it 'calls ExistingProductPriceUpdater#update_prices' do
+          expect_any_instance_of(ExistingProductPriceUpdater).to receive(:update_prices)
+          subject
         end
 
         it 'not created new product item' do

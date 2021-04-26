@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   include ProductsHelper
   before_action :product, only: %i[edit update show destroy]
+  before_action :new_product, :existing_product, :new_product_price, only: :create
 
   def index
     @products = Product.all
@@ -14,13 +15,13 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
-    existing_product = Product.find_by(name: @product.name)
-    product_price = @product.prices.try(:first)
-    if existing_product
-      behavior_existing_product_price(@product, existing_product, product_price)
-    elsif @product.save
-      added_new_product_flash(product_price.quantity, @product.name)
+    case
+    when ExistingProductPriceUpdater.new(@product, @existing_product, @product_price).update_quantity
+      added_existing_prices_flash(@product_price.quantity, @existing_product.name)
+    when ExistingProductPriceUpdater.new(@product, @existing_product, @product_price).update_prices
+      added_new_prices_flash(@product_price.quantity, @product.name)
+    when !@existing_product && @product.save
+      added_new_product_flash(@product_price.quantity, @product.name)
     else
       invalid_new_params
     end
@@ -54,5 +55,17 @@ class ProductsController < ApplicationController
 
   def product
     @product = Product.find(params[:id])
+  end
+
+  def new_product
+    @product = Product.new(product_params)
+  end
+
+  def existing_product
+    @existing_product = Product.find_by(name: @product.name)
+  end
+
+  def new_product_price
+    @product_price = @product.prices.try(:first)
   end
 end

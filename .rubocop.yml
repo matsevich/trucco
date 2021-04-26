@@ -137,6 +137,9 @@ Style/SlicingWithRange:
 Style/StringConcatenation:
   Enabled: true
 
+Style/EmptyCaseCondition:
+  Enabled: false
+
 Rails/ActiveRecordCallbacksOrder:
   Enabled: true
 

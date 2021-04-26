@@ -16,6 +16,9 @@ class PricesController < ApplicationController
 
   def destroy
     @price.destroy
+
+    @product.destroy if @product.prices.empty?
+
     redirect_to products_path
     flash[:danger] = t('.destroy_name', destroy_name: @product.name)
   end

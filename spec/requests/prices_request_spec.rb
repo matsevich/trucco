@@ -67,8 +67,10 @@ RSpec.describe 'Prices', type: :request do
   end
 
   describe 'DELETE /destroy' do
-    it 'returns http no-content' do
-      delete "/products/#{price.product_id}/prices/#{price.id}"
+    subject { delete "/products/#{price.product_id}/prices/#{price.id}" }
+
+    it 'redirect to products_path' do
+      subject
       expect(response).to have_http_status(:redirect)
       expect(response).to redirect_to(products_path)
     end
