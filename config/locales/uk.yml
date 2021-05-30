@@ -53,6 +53,7 @@ uk:
         root_link_title: 'Trucco'
         log_out: 'Вийти'
         categories: 'Категорії'
+        products: Продукти
         hello: "Привіт, %{hello}"
         select_lang: 'Вибрати мову'
         btn_eng: 'EN'
@@ -98,5 +99,88 @@ uk:
       cancel: 'Відмінити'
       new_category: 'Редагувати категорію'
 
+  products:
 
+    successfully_update: Ви успішно оновили продукт
+    invalid_edit_params: Не вірні дані для редагування
+    destroy_product: Ви видалили '%{destroy_product}' продукт
 
+    index:
+      all_products: Усі продукти
+      header_name: Назва
+      header_category: Категорія
+      header_buy_price: Закупочна ціна
+      header_sell_price: Ціна продажу
+      header_quantity: К-сть
+      header_edit: Редагувати
+      header_delete: Видалити
+
+    new:
+      add_button: Створити
+      cancel_btn_text: Відмінити
+    
+    create:
+
+    edit:
+      edit_product: Редагувати продукт
+      edit_button: Редагувати
+      cancel_btn_text: Відмінити
+
+    form:
+      name_label: Назва
+      name_placeholder: Введіть назву продукту
+      category_label: Категорія
+      category: Виберіть категорію продукту
+      description_label: Опис
+      description_placeholder: Опишіть продукт...
+
+    prices:
+      buy_price_label: Закупочна ціна
+      buy_price_placeholder: Введіть закупочну ціну
+      sell_price_label: Ціна продажу
+      sell_price_placeholder: Введіть ціну продажу
+      quantity: Кількість
+      quantity_placeholder: Введіть кількість товарів що добавляєте
+
+    product:
+      confirmation: Ви впевнені що бажаєте видалити цей продукт?
+
+    show:
+      pic_alt: Колись тут буде фотографія
+      category: 'Категорія:'
+      description: 'Опис:'
+      available: 'Доступні:'
+      confirmation: Ви впевнені що бажаєте видалити цей продукт з усіма його цінами?
+
+    show_prices:
+      product_name_header: Назва
+      buy_price: Закупочна ціна
+      sell_price: Ціна продажу
+      quantity: Кількість
+      pices: шт.
+
+  existing_prices_success: Ви додали %{quantity} %{item} - %{name}, з вжe існуючою  ціною
+  item: шт.
+  invalid_new_params: Не вірні параметри
+  new_prices_success: Ви додали %{quantity} %{item} - %{name}, з новими цінами
+  new_product_success: Ви додали %{quantity} %{item} новий продукт - %{name}
+
+  prices:
+
+    successfully_update: Ви успішно оновили ціни для %{update_product}
+    invalid_edit_params: Не вірні параметри для редагування
+    destroy_name: Ви видалили %{destroy_name} з певними цінами
+
+    edit:
+      edit_price: Редагувати ціну
+      for: для
+
+    form:
+      buy_price_label: Закупочна ціна
+      buy_price_placeholder: Введіть закупочну ціну
+      sell_price_label: Ціна продажу
+      sell_price_placeholder: Введіть ціну продажу
+      quantity: Кількість
+      quantity_placeholder: Введіть кількість продуктів
+      edit: Редагувати
+      cancel: Відміна

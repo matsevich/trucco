@@ -1,9 +1,8 @@
 class Product < ApplicationRecord
+  has_many   :prices, dependent: :destroy
   belongs_to :category
 
-  monetize :price_cents, numericality: {
-    greater_than: 0,
-    less_than_or_equal_to: 300_000
-  }
-  validates :name, :description, :price_cents, presence: true
+  validates :name, presence: true
+
+  accepts_nested_attributes_for :prices
 end

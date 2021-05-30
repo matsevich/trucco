@@ -1,0 +1,9 @@
+.content.pt-4
+  .form-component
+    h1.text-center
+      = t('.edit_price')
+    p.text-center
+      = t('.for')
+      span.m-2
+        = "#{@price.quantity} #{@product.name}"
+    = render 'form', object: @price

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_07_111430) do
+ActiveRecord::Schema.define(version: 2021_03_28_091601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,16 +37,28 @@ ActiveRecord::Schema.define(version: 2021_02_07_111430) do
     t.index ["title"], name: "index_categories_on_title", unique: true
   end
 
+  create_table "prices", force: :cascade do |t|
+    t.integer "buy_price_cents"
+    t.string "buy_price_currency", default: "UAH", null: false
+    t.integer "sell_price_cents"
+    t.string "sell_price_currency", default: "UAH", null: false
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "product_id"
+    t.index ["product_id"], name: "index_prices_on_product_id"
+    t.index ["sell_price_cents"], name: "index_prices_on_sell_price_cents"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.integer "price_cents"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "category_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["name"], name: "index_products_on_name"
-    t.index ["price_cents"], name: "index_products_on_price_cents"
   end
 
+  add_foreign_key "prices", "products"
 end

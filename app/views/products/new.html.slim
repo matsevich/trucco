@@ -1,0 +1,7 @@
+= provide(:button, t('.add_button'))
+= provide(:cancel_btn_text, t('.cancel'))
+= provide(:path, products_path)
+
+h1.m-4.text-center New Product
+
+= render 'products/form', object: @product
