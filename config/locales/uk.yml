@@ -112,8 +112,8 @@ uk:
       header_buy_price: Закупочна ціна
       header_sell_price: Ціна продажу
       header_quantity: К-сть
-      header_edit: Редагувати
-      header_delete: Видалити
+      header_sell: Продати
+      header_more: Більше
 
     new:
       add_button: Створити
@@ -143,7 +143,7 @@ uk:
       quantity_placeholder: Введіть кількість товарів що добавляєте
 
     product:
-      confirmation: Ви впевнені що бажаєте видалити цей продукт?
+      confirmation: Ви впевнені що бажаєте видалити %{quantity} одиниці продуктів?
 
     show:
       pic_alt: Колись тут буде фотографія

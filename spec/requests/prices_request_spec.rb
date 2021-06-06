@@ -53,7 +53,7 @@ RSpec.describe 'Prices', type: :request do
     context 'with invalid params' do
       before do
         put "/products/#{price.product_id}/prices/#{price.id}", params: { price: valid_params.merge!(
-          buy_price: nil, sell_price: '200'
+          quantity: 0, sell_price: '200'
         ) }
       end
 

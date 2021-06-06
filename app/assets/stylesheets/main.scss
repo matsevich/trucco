@@ -13,8 +13,16 @@
   margin-top: 70px;
 }
 
-.mt-8 {
-  margin-top: 80px;
+.mt-15 {
+  margin-top: 125px;
+}
+
+.alert {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  text-align: center;
 }
 
 .alert-notice {
@@ -70,4 +78,8 @@ span.error {
       text-decoration: underline;
     }
   }
+}
+
+.fa-edit {
+  padding-top: 4px;
 }

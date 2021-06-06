@@ -9,7 +9,8 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    .container.m-top
+    .container-fluid.m-top
       = render 'shared/header'
       = render 'shared/flash_msg'
-      = yield
+      .container-fluid.mt-15 
+        = yield
