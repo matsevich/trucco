@@ -1,9 +1,9 @@
 nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
-  = link_to t('.root_link_title'), root_path, class: 'navbar-brand'
+  = link_to t('.root_link_title'), root_path, class: 'navbar-brand ms-2'
   button.navbar-toggler aria-controls="navbarCollapse" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarCollapse" data-toggle="collapse" type="button" 
     span.navbar-toggler-icon
-  #navbarCollapse.collapse.navbar-collapse
-    ul.navbar-nav.mr-auto
+  #navbarCollapse.collapse.navbar-collapse.justify-content-between
+    ul.navbar-nav
       li.nav-item
         = link_to categories_path, class: 'nav-link'
           = t('.categories')
@@ -12,14 +12,14 @@ nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
           = t('.products')
       li.nav-item
         a.nav-link.disabled href="#"  Disabled
-      li.nav-item.d-flex.justify-content-center.align-items-center.ml-2
+      li.nav-item.d-flex.justify-content-center.align-items-center.ms-2
         span.admin_greetings
           = t('.hello', hello: current_admin.full_name)
-    form.form-inline.mt-2.mt-md-0
-      input.form-control.mr-sm-2 aria-label="Search" placeholder="Search" type="text" /
+    form.form-inline.mt-2.mt-md-0.d-flex
+      input.form-control.me-sm-2 aria-label="Search" placeholder="Search" type="text" /
       button.btn.btn-outline-success.my-2.my-sm-0 type="submit"  Search
     .d-flex.justify-content-end.m-2
-      .dropdown.mr-2
+      .dropdown.me-2
         button#dropdownMenuButton.btn.btn-transparent.auth-btn.dropdown-toggle aria-expanded='false' aria-haspopup='true' data-toggle='dropdown'
           = t('.select_lang')
         .dropdown-menu

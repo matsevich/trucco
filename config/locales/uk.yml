@@ -170,6 +170,10 @@ uk:
     successfully_update: Ви успішно оновили ціни для %{update_product}
     invalid_edit_params: Не вірні параметри для редагування
     destroy_name: Ви видалили %{destroy_name} з певними цінами
+    invalid_for_sell_params: Введіть вірну кількість
+    quantity_must_be_higher: Кількість для продажу повинна бути вище 0
+    successfully_sold: Ви успішно позначили %{quantity} шт. %{product} як 'продані'
+    quantity_inclusion: Ви ввели зависоке значення
 
     edit:
       edit_price: Редагувати ціну
@@ -184,3 +188,12 @@ uk:
       quantity_placeholder: Введіть кількість продуктів
       edit: Редагувати
       cancel: Відміна
+
+    sell_form:
+      sell: Продати
+      sell_price_label: Ціна продажу
+      sell_price_placeholder: Введіть ціну продажу
+      quantity: Кількість
+      quantity_placeholder: Введіть кількість
+      sell_product: Продаж товару
+      confirmation: Ви впевнені?

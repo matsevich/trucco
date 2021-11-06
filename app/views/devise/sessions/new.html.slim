@@ -3,7 +3,7 @@
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .form-inputs
       .input_row.d-flex.justify-content-start.align-items-center
-        .mr-2
+        .me-2
           = fa_icon 'at'
         = f.input :email,
                   label: false,
@@ -11,14 +11,14 @@
                   required: true,
                   input_html: { autocomplete: 'email', class: 'form-control' }
       .input_row.d-flex.justify-content-start.align-items-center
-        .mr-2
+        .me-2
           = fa_icon 'key'
         = f.input :password,
                   label: false,
                   placeholder: 'Password',
                   required: true,
                   input_html: { autocomplete: 'new-password', class: 'form-control' }
-      = f.input :remember_me, as: :boolean, input_html: { class: 'mr-3' } if devise_mapping.rememberable?
+      = f.input :remember_me, as: :boolean, input_html: { class: 'me-3' } if devise_mapping.rememberable?
     .form-actions.d-flex.justify-content-around
       = f.button :submit, 'Log in', class: 'btn btn-primary'
       = link_to root_path

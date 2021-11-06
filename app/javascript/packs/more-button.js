@@ -8,6 +8,7 @@ $(document).on("turbolinks:load", function () {
   });
   $(".times").each(function () {
     $(this).click(function(){
+      console.log('1')
       $(this).parent().hide();
       $(this).parent().next().show();
       console.log('12')

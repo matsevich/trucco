@@ -19,6 +19,7 @@ class PricesController < ApplicationController
 
   def sell
     if ProductPriceSeller.new(price_params, @price).call
+      @price.destroy if @price.quantity.zero?
       flash[:success] = i18n_for_sold(price_params)
       redirect_to products_path
     else
