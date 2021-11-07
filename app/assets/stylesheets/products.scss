@@ -49,6 +49,7 @@
 .btn-more-hidden {
   display: none;
   position: relative;
+  height: 33px;
   justify-content: center;
 
   a:first-of-type{
@@ -59,6 +60,7 @@
     height: 20px;
     position: absolute;
     top: -18px;
+    right: -20px;
     cursor: pointer;
     width: 20px;
     color: rgb(73, 71, 71);
