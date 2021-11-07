@@ -12,6 +12,18 @@
   border: 1px solid #1fc7c0;
   padding: 20px;
   border-radius: 20px;
+  margin: 0 auto;
+}
+
+.product_selling_form {
+  max-width: 1000px;
+  border: 1px solid #1fc7c0;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 .back {
@@ -31,5 +43,51 @@
   &:hover {
     background-color: #d0e6f986;
     color: #023157c0;
+  }
+}
+
+.btn-more-hidden {
+  display: none;
+  position: relative;
+  height: 33px;
+  justify-content: center;
+
+  a:first-of-type{
+    margin-right: 25px;
+  }
+
+  span.times {
+    height: 20px;
+    position: absolute;
+    top: -18px;
+    right: -20px;
+    cursor: pointer;
+    width: 20px;
+    color: rgb(73, 71, 71);
+
+    &:hover {
+      color: rgb(2, 82, 114);
+    }
+  }
+}
+
+.form-group {
+  margin-top: 20px;
+}
+
+.btn-more {
+  cursor: pointer;
+  color: rgb(73, 71, 71);
+
+  &:hover {
+    color: rgb(2, 82, 114);
+  }
+}
+
+.sell-btn {
+  color: #228b22;
+
+  &:hover {
+    color: rgb(2, 82, 114);
   }
 }

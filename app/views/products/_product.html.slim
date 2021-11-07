@@ -12,10 +12,19 @@
     .col-1.text-center
       = price.quantity
     .col-1.text-center.align-middle
-      = link_to edit_product_price_path(product, price)
-        h3.m-0
-          = fa_icon 'edit'
+      = link_to sell_form_product_price_path(product, price)
+        h3.m-0.sell-btn
+          = fa_icon 'dollar'
     .col-1.text-center.align-middle
-      = link_to product_price_path(product, price), method: :delete, data: { confirm: t('.confirmation') }
-        h3
-          = fa_icon 'trash'
+      .btn-more-hidden
+        = link_to edit_product_price_path(product, price)
+          h3.m-0
+            = fa_icon 'edit'
+        span.times
+          = fa_icon 'times-circle'
+        = link_to product_price_path(product, price), method: :delete, data: { confirm: t('.confirmation', quantity: price.quantity) }
+          h3.m-0
+            = fa_icon 'trash'
+      #button-more.btn-more
+        h3.m-0
+          = fa_icon 'ellipsis-v'

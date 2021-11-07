@@ -13,8 +13,16 @@
   margin-top: 70px;
 }
 
-.mt-8 {
-  margin-top: 80px;
+.mt-15 {
+  margin-top: 130px;
+}
+
+.alert {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  text-align: center;
 }
 
 .alert-notice {
@@ -26,6 +34,7 @@
 span.error {
   color: #dc3545;
   margin-left: 10px;
+  position: absolute;
 }
 
 .error_notification {
@@ -70,4 +79,8 @@ span.error {
       text-decoration: underline;
     }
   }
+}
+
+.fa-edit {
+  padding-top: 4px;
 }

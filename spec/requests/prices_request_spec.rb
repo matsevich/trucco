@@ -53,13 +53,55 @@ RSpec.describe 'Prices', type: :request do
     context 'with invalid params' do
       before do
         put "/products/#{price.product_id}/prices/#{price.id}", params: { price: valid_params.merge!(
-          buy_price: nil, sell_price: '200'
+          quantity: -1, sell_price: '200'
         ) }
       end
 
       it 'returns edit template' do
         expect(response).not_to redirect_to(products_path)
         expect(response).to render_template(:edit)
+      end
+
+      it { expect(flash[:warning]).to be_present }
+    end
+  end
+
+  describe 'GET /sell_form' do
+    it 'returns http success' do
+      get "/products/#{price.product_id}/prices/#{price.id}/sell_form"
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe 'PATCH /sell' do
+    let(:valid_params) { { quantity: 1, sell_price: price.sell_price } }
+
+    context 'with valid params' do
+      subject do
+        patch "/products/#{price.product_id}/prices/#{price.id}/sell", params: { price: valid_params }
+      end
+
+      it 'returns http redirect' do
+        subject
+        expect(response).to have_http_status(:redirect)
+        expect(response).not_to render_template(:sell_form)
+      end
+
+      it 'reduces prices quantity' do
+        expect { subject }.to change { price.reload.quantity }.by(-1)
+      end
+    end
+
+    context 'with invalid params' do
+      before do
+        patch "/products/#{price.product_id}/prices/#{price.id}/sell", params: { price: valid_params.merge!(
+          quantity: -1
+        ) }
+      end
+
+      it 'returns edit template' do
+        expect(response).not_to redirect_to(products_path)
+        expect(response).to render_template(:sell_form)
       end
 
       it { expect(flash[:warning]).to be_present }

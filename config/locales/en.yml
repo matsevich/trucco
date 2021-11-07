@@ -105,7 +105,6 @@ en:
     invalid_edit_params: Invalid parameters for editing
     destroy_product: You have destroyed '%{destroy_product}' product
 
-
     index:
       all_products: All products
       header_name: Product name
@@ -113,8 +112,8 @@ en:
       header_buy_price: Purchase price
       header_sell_price: Selling price
       header_quantity: Quantity
-      header_edit: Edit
-      header_delete: Delete
+      header_sell: Sell
+      header_more: More
 
     new:
       add_button: Create
@@ -144,7 +143,7 @@ en:
       quantity_placeholder: Enter the number of adding items
 
     product:
-      confirmation: Are you sure you want to delete this item?
+      confirmation: Are you sure you want to delete this %{quantity} item's?
 
     show:
       pic_alt: Someday here will be some pictures
@@ -160,7 +159,6 @@ en:
       quantity: Quantity
       pices: pcs.
 
-    
   existing_prices_success: You add %{quantity} %{item} of %{name}, with existing prices
   item: item
   invalid_new_params: Invalid parameters
@@ -172,6 +170,10 @@ en:
     successfully_update: You have successfully updated prices of %{update_product}
     invalid_edit_params: Invalid parameters for editing
     destroy_name: You have destroyed %{destroy_name} product with separate prices
+    invalid_for_sell_params: Enter correct quantity
+    quantity_must_be_higher: Selling quantity must be greater than 0
+    successfully_sold: You have successfully mark %{quantity} pcs. of %{product} as sold
+    quantity_inclusion: You insert too high value
 
     edit:
       edit_price: Edit price
@@ -186,3 +188,12 @@ en:
       quantity_placeholder: Enter the number of items
       edit: Edit
       cancel: Cancel
+
+    sell_form:
+      sell: Sell
+      sell_price_label: Selling price
+      sell_price_placeholder: Enter selling price
+      quantity: Quantity, should be no more than '%{quantity}'
+      quantity_placeholder: Enter the number of items
+      sell_product: Selling product
+      confirmation: Are you shure?

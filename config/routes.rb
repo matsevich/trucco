@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
     resources :categories, except: :show
     resources :products do
-      resources :prices, only: %i[edit update destroy]
+      resources :prices, only: %i[edit update destroy] do
+        get 'sell_form', on: :member
+        patch 'sell', on: :member
+      end
     end
   end
 end

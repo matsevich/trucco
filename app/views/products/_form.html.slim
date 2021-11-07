@@ -15,7 +15,7 @@
     = render 'products/prices', f: f unless request.env['PATH_INFO'] =~ /edit/
 
     .form-group.form-buttons.text-center
-      = f.submit yield(:button), class: 'btn btn-primary mr-4'
+      = f.submit yield(:button), class: 'btn btn-primary me-4'
       = link_to  yield(:cancel_btn_text),
                             yield(:path),
                             class: 'btn btn-outline-danger'
